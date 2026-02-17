@@ -1,4 +1,32 @@
 body {
     text-align: center;
-    color: green;
+    /* Changes font color to black */
+    color: #000000; 
+    
+    /* The "Inch" Border (Approx 96px for a true inch, 
+       but 40px-60px usually looks best for a 'frame' effect) */
+    border: 60px solid #1d2a46; 
+    padding: 40px;
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box; /* Crucial: keeps border from causing scrollbars */
+}
+
+/* Make the title bigger */
+h1 {
+    font-size: 3rem; /* Significantly larger */
+    margin-top: 0;
+    color: #000000;
+}
+
+.sub-nav {
+    display: none !important;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 12px;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    border: 1px dashed #ccc;
 }
