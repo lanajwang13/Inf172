@@ -4,7 +4,7 @@ body {
     text-align: center;
     color: #000000; 
     line-height: 1.6;
-    border: 60px solid #1d2a46; /* Navy Inch Border */
+    border: 60px solid #1d2a46; 
     padding: 40px;
     margin: 0;
     min-height: 100vh;
@@ -12,9 +12,19 @@ body {
     background-color: #ffffff;
 }
 
+/* Section Dividers */
+.section-divider {
+    height: 4px;
+    background-color: #1d2a46;
+    max-width: 800px;
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 2px;
+}
+
 /* Typography Hierarchy */
 h1 {
-    font-size: 3rem; 
+    font-size: clamp(2rem, 8vw, 3.5rem);
     font-weight: 800;
     margin-top: 0;
     letter-spacing: -1px;
@@ -28,8 +38,9 @@ h1 {
     color: #444;
     background: #fcfcfc;
     padding: 25px;
-    border-left: 5px solid #1DB954; /* Spotify Green Accent */
+    border-left: 5px solid #1DB954;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 /* Navigation & Buttons */
@@ -62,30 +73,47 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
+button:hover, .active-btn {
     background-color: #1DB954;
     color: white;
     border-color: #1DB954;
 }
 
-.active-btn {
-    background-color: #1DB954;
-    color: white;
-    border-color: #1DB954;
-}
-
-/* Aligned Content Displays */
+/* Content Containers */
 .genre-player {
-    display: none;
+    display: none; /* Hidden by default */
     margin: 0 auto 30px;
-    max-width: 800px; /* Aligned with Table */
+    max-width: 800px;
+    width: 100%;
     animation: fadeIn 0.5s ease;
 }
 
-.genre-player iframe {
+.results-container, .task-container {
+    max-width: 800px;
     width: 100%;
-    height: 352px; /* Large view */
+    margin: 0 auto 30px;
+    box-sizing: border-box;
+}
+
+.genre-player iframe, .form-iframe {
+    width: 100%;
+    height: 352px;
     border: none;
+    border-radius: 12px;
+}
+
+.form-iframe {
+    height: 600px;
+}
+
+.schulte-iframe {
+    width: 100%;
+    height: 700px;
+    max-width: 800px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
 }
 
 @keyframes fadeIn {
@@ -93,16 +121,7 @@ button:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-iframe[title="Schulte Grid Test"] {
-    max-width: 800px; /* Aligned with Players */
-    width: 100%;
-    height: 700px;
-    margin: 30px auto;
-    display: block;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-/* Mobile Responsive Adjustments */
+/* Mobile Responsive Logic */
 @media screen and (max-width: 768px) {
     body {
         border-width: 15px; 
@@ -110,7 +129,7 @@ iframe[title="Schulte Grid Test"] {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     button {
@@ -122,40 +141,12 @@ iframe[title="Schulte Grid Test"] {
         flex-direction: column;
     }
 
-    .genre-player, iframe[title="Schulte Grid Test"] {
-        max-width: 100%;
+    .schulte-iframe {
+        height: 500px;
     }
 }
 
-
-.results-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fdfdfd;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-}
-
-.results-container h3 {
-    margin-top: 0;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    color: #1d2a46;
-}
-
-/* Ensure the form stays responsive on mobile */
-@media screen and (max-width: 768px) {
-    .results-container {
-        margin: 20px;
-        padding: 10px;
-    }
-}
-
-/* Styling for the Pre-Study Note */
+/* Survey Note Styling */
 .pre-study-note {
     background-color: #f0f7ff; 
     border: 1px solid #d0e3ff;
@@ -163,12 +154,6 @@ iframe[title="Schulte Grid Test"] {
     padding: 20px;
     margin-top: 25px;
     text-align: center;
-}
-
-.pre-study-note p {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    color: #1d2a46;
 }
 
 .survey-btn {
@@ -185,13 +170,6 @@ iframe[title="Schulte Grid Test"] {
 }
 
 .survey-btn:hover {
-    background-color: #1DB954; /* Spotify Green */
+    background-color: #1DB954;
     transform: translateY(-2px);
-}
-
-/* Ensure the results container matches your column width */
-.results-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
 }
