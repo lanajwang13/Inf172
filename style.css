@@ -16,10 +16,29 @@ body {
 .section-divider {
     height: 4px;
     background-color: #1d2a46;
-    max-width: 800px;
+    max-width: 1000px;
     width: 90%;
     margin: 50px auto;
     border-radius: 2px;
+}
+
+/* Dual Player Layout */
+.dual-player-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    margin: 20px auto;
+}
+
+.player-iframe {
+    flex: 1;
+    min-width: 300px; /* Minimum width before stacking */
+    height: 352px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* Typography Hierarchy */
@@ -69,7 +88,6 @@ button {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.85rem;
-    letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
 
@@ -81,9 +99,9 @@ button:hover, .active-btn {
 
 /* Content Containers */
 .genre-player {
-    display: none; /* Hidden by default */
+    display: none;
     margin: 0 auto 30px;
-    max-width: 800px;
+    max-width: 1000px; /* Wider to accommodate side-by-side */
     width: 100%;
     animation: fadeIn 0.5s ease;
 }
@@ -95,41 +113,32 @@ button:hover, .active-btn {
     box-sizing: border-box;
 }
 
-.genre-player iframe, .form-iframe {
+.form-iframe {
     width: 100%;
-    height: 352px;
+    height: 600px;
     border: none;
     border-radius: 12px;
-}
-
-.form-iframe {
-    height: 600px;
 }
 
 .schulte-iframe {
     width: 100%;
     height: 700px;
-    max-width: 800px;
     border: 2px solid #eee;
     border-radius: 10px;
     display: block;
     margin: 0 auto;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile Responsive Logic */
+/* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     body {
         border-width: 15px; 
         padding: 20px;
     }
 
-    h1 {
-        font-size: 2.2rem;
+    .player-iframe {
+        min-width: 100%; /* Stacks vertically on mobile */
+        height: 250px;
     }
 
     button {
@@ -146,7 +155,12 @@ button:hover, .active-btn {
     }
 }
 
-/* Survey Note Styling */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Survey Note */
 .pre-study-note {
     background-color: #f0f7ff; 
     border: 1px solid #d0e3ff;
