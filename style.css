@@ -30,3 +30,10 @@ h1 {
     flex-wrap: wrap;
     border: 1px dashed #ccc;
 }
+
+iframe[title="Schulte Grid Test"] {
+    max-width: 800px; /* Limits the width */
+    width: 100%;     /* Allows it to shrink on smaller screens */
+    margin: 20px auto; /* Centers it horizontally */
+    display: block;    /* Required for 'margin: auto' to work */
+}
