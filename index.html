@@ -2,55 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music and Focus</title>
-    <style>
-        /* Basic styling to keep the buttons looking like a dashboard */
-        .genre-nav {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .genre-player {
-            display: none; /* All players hidden by default */
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            background-color: #f8f9fa;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-        button:hover {
-            background-color: #1DB954; /* Spotify Green */
-            color: white;
-        }
-        .active-btn {
-            background-color: #1DB954;
-            color: white;
-            border-color: #1DB954;
-        }
-    </style>
+    <title>Music and Focus Study</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="mobile-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; color:white; text-align:center; padding:50px; box-sizing:border-box;">
-        <div style="margin-top:100px;">
-            <h2>Mobile Detected</h2>
-            <p>This study is ideally taken in a desktop browser for the best accuracy.</p>
-            <button onclick="closeWarning()" style="background:#1DB954; color:white; border:none; padding:15px 30px; font-size:1.2rem; border-radius:8px; cursor:pointer; margin-top:20px;">Proceed Anyway</button>
+    <div id="mobile-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; color:white; text-align:center; padding:50px; box-sizing:border-box;">
+        <div style="margin-top:100px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            <h2>Mobile Device Detected</h2>
+            <p>For the highest data accuracy in this focus study, a desktop browser is recommended. Screen size can impact your Schulte Grid results.</p>
+            <button onclick="closeWarning()" style="background:#1DB954; color:white; border:none; padding:15px 30px; font-size:1.1rem; border-radius:8px; cursor:pointer; margin-top:20px; font-weight:bold;">PROCEED ANYWAY</button>
         </div>
     </div>
 
-
     <h1>Music & Focus Study</h1>
-    <p>Step 1: Choose a genre. Step 2: Complete the Schulte Grid.</p>
+    
+    <div class="study-intro">
+        <p><strong>Step 1:</strong> Choose a music genre.<br>
+           <strong>Step 2:</strong> Complete the Schulte Grid sequentially (1 to 49).</p>
+        
+        <p>
+            Thank you for participating in our study! We are examining how different musical genres impact cognitive focus. 
+            You will complete the Schulte Table 5-6 times with various genres playing. 
+            Your results will be documented for analysis and all data is strictly anonymized.
+        </p>
+    </div>
 
     <div class="genre-nav">
         <button onclick="showGenre('pop', this)">Pop</button>
@@ -68,127 +45,58 @@
     </div>
 
     <div id="music-section">
-        
         <div id="pop" class="genre-player">
             <h3>Now Playing: Pop</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2plbrEY59IikOBgBGLjaoe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2plbrEY59IikOBgBGLjaoe?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div id="country" class="genre-player">
             <h3>Now Playing: Country</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/65DbTqJKhbwqYbZ1Okr0rc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        </div>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/65DbTqJKhbwqYbZ1Okr0rc?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
 
         <div id="edm" class="genre-player">
             <h3>Now Playing: EDM</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7MmG8p0F9N3C4AXdK6o6Eb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7MmG8p0F9N3C4AXdK6o6Eb?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div id="classical" class="genre-player">
             <h3>Now Playing: Classical</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
-        <div id="preferred" class="genre-player">
-            <h3>Now Playing: Preferred Selection</h3>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6habFbebtm2gnuO9ZpTYSR4" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-
-
-        <!--This is for Preferred genre options-->
         <div id="pref-1" class="genre-player">
             <h3>Now Playing: Hip-Hop</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/39QBkWKnap8wRSW4WB9OK0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/39QBkWKnap8wRSW4WB9OK0?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div id="pref-2" class="genre-player">
             <h3>Now Playing: R&B</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4iZ4pt7kvcaH6Yo8UoZ4s2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4iZ4pt7kvcaH6Yo8UoZ4s2?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div id="pref-3" class="genre-player">
             <h3>Now Playing: Indie</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div id="pref-4" class="genre-player">
             <h3>Now Playing: Rock</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/60a0Rd6pjrkxjPbaKzXjfq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/60a0Rd6pjrkxjPbaKzXjfq?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
-
-
-
     </div>
 
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
     <iframe 
         src="https://drafterleo.github.io/schulte/" 
         width="100%" 
         height="700px" 
-        style="border: 2px solid #eee; border-radius: 10px; margin-top: 20px;" 
+        style="border: 2px solid #eee; border-radius: 10px;" 
         title="Schulte Grid Test">
     </iframe>
 
     <script>
-        function showGenre(genreId, btnElement) {
-            // Hide all music players
-            const players = document.getElementsByClassName('genre-player');
-            for (let i = 0; i < players.length; i++) {
-                players[i].style.display = 'none';
-            }
-
-            // Remove active class from all buttons
-            const buttons = document.getElementsByTagName('button');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active-btn');
-            }
-            
-            // Show the selected player
-            document.getElementById(genreId).style.display = 'block';
-            
-            // Highlight the clicked button
-            btnElement.classList.add('active-btn');
-        }
-
-        function togglePreferred(btnElement) {
-            const menu = document.getElementById('preferred-menu');
-            
-            // Hide all players first so the screen isn't cluttered
-            const players = document.getElementsByClassName('genre-player');
-            for (let i = 0; i < players.length; i++) {
-                players[i].style.display = 'none';
-            }
-
-            // Toggle the menu: Use 'setProperty' to override the !important if necessary
-            if (menu.style.getPropertyValue('display') === 'flex') {
-                menu.style.setProperty('display', 'none', 'important');
-                btnElement.classList.remove('active-btn');
-            } else {
-                menu.style.setProperty('display', 'flex', 'important');
-                resetButtons();
-                btnElement.classList.add('active-btn');
-            }
-        }
-
-        function showGenre(genreId, btnElement) {
-            // Hide all music players
-            const players = document.getElementsByClassName('genre-player');
-            for (let i = 0; i < players.length; i++) {
-                players[i].style.display = 'none';
-            }
-
-            // If we click a main genre (not a sub-genre), hide the sub-menu
-            if (!genreId.startsWith('pref')) {
-                document.getElementById('preferred-menu').style.display = 'none';
-            }
-
-            resetButtons();
-            
-            // Show the selected player and highlight button
-            document.getElementById(genreId).style.display = 'block';
-            btnElement.classList.add('active-btn');
-        }
-
         function resetButtons() {
             const buttons = document.getElementsByTagName('button');
             for (let i = 0; i < buttons.length; i++) {
@@ -196,19 +104,47 @@
             }
         }
 
-        // Check for mobile on page load
+        function showGenre(genreId, btnElement) {
+            const players = document.getElementsByClassName('genre-player');
+            for (let i = 0; i < players.length; i++) {
+                players[i].style.display = 'none';
+            }
+
+            if (!genreId.startsWith('pref')) {
+                document.getElementById('preferred-menu').style.display = 'none';
+            }
+
+            resetButtons();
+            document.getElementById(genreId).style.display = 'block';
+            btnElement.classList.add('active-btn');
+        }
+
+        function togglePreferred(btnElement) {
+            const menu = document.getElementById('preferred-menu');
+            const players = document.getElementsByClassName('genre-player');
+            for (let i = 0; i < players.length; i++) {
+                players[i].style.display = 'none';
+            }
+
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+                btnElement.classList.remove('active-btn');
+            } else {
+                menu.style.display = 'flex';
+                resetButtons();
+                btnElement.classList.add('active-btn');
+            }
+        }
+
         window.onload = function() {
             if (window.innerWidth <= 768) {
                 document.getElementById('mobile-overlay').style.display = 'block';
             }
         };
 
-        // Function to hide the warning
         function closeWarning() {
             document.getElementById('mobile-overlay').style.display = 'none';
         }
-        
     </script>
-
 </body>
 </html>

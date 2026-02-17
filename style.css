@@ -1,67 +1,128 @@
+/* Core Layout & Border Frame */
 body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     text-align: center;
-    /* Changes font color to black */
     color: #000000; 
-    
-    /* The "Inch" Border (Approx 96px for a true inch, 
-       but 40px-60px usually looks best for a 'frame' effect) */
-    border: 60px solid #1d2a46; 
+    line-height: 1.6;
+    border: 60px solid #1d2a46; /* Navy Inch Border */
     padding: 40px;
     margin: 0;
     min-height: 100vh;
-    box-sizing: border-box; /* Crucial: keeps border from causing scrollbars */
+    box-sizing: border-box;
+    background-color: #ffffff;
 }
 
-/* Make the title bigger */
+/* Typography Hierarchy */
 h1 {
-    font-size: 3rem; /* Significantly larger */
+    font-size: 3rem; 
+    font-weight: 800;
     margin-top: 0;
-    color: #000000;
+    letter-spacing: -1px;
+}
+
+.study-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: left;
+    font-size: 1.05rem;
+    color: #444;
+    background: #fcfcfc;
+    padding: 25px;
+    border-left: 5px solid #1DB954; /* Spotify Green Accent */
+    border-radius: 4px;
+}
+
+/* Navigation & Buttons */
+.genre-nav, .sub-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px 0;
+    flex-wrap: wrap;
 }
 
 .sub-nav {
-    display: none !important;
-    background-color: #f1f1f1;
-    padding: 15px;
+    display: none; 
+    background-color: #f8f8f8;
+    padding: 20px;
     border-radius: 12px;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-    flex-wrap: wrap;
-    border: 1px dashed #ccc;
+    border: 1px dashed #ddd;
+}
+
+button {
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1DB954;
+    color: white;
+    border-color: #1DB954;
+}
+
+.active-btn {
+    background-color: #1DB954;
+    color: white;
+    border-color: #1DB954;
+}
+
+/* Aligned Content Displays */
+.genre-player {
+    display: none;
+    margin: 0 auto 30px;
+    max-width: 800px; /* Aligned with Table */
+    animation: fadeIn 0.5s ease;
+}
+
+.genre-player iframe {
+    width: 100%;
+    height: 352px; /* Large view */
+    border: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 iframe[title="Schulte Grid Test"] {
-    max-width: 800px; /* Limits the width */
-    width: 100%;     /* Allows it to shrink on smaller screens */
-    margin: 20px auto; /* Centers it horizontally */
-    display: block;    /* Required for 'margin: auto' to work */
+    max-width: 800px; /* Aligned with Players */
+    width: 100%;
+    height: 700px;
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     body {
-        /* Shrink the huge border so content has room */
         border-width: 15px; 
-        padding: 15px;
+        padding: 20px;
     }
 
     h1 {
-        font-size: 1.8rem; /* Shrink title so it doesn't wrap weirdly */
+        font-size: 2rem;
     }
 
     button {
-        width: 100%; /* Stack buttons vertically for easier tapping */
-        padding: 15px; /* Bigger "hit area" for thumbs (Fitts's Law!) */
-        font-size: 1.1rem;
+        width: 100%;
+        padding: 18px;
     }
 
     .genre-nav, .sub-nav {
-        flex-direction: column; /* Stack buttons in a column */
-        gap: 8px;
+        flex-direction: column;
     }
 
-    iframe {
-        height: 450px; /* Shorten the grid so users don't have to scroll forever */
+    .genre-player, iframe[title="Schulte Grid Test"] {
+        max-width: 100%;
     }
 }
