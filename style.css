@@ -37,3 +37,31 @@ iframe[title="Schulte Grid Test"] {
     margin: 20px auto; /* Centers it horizontally */
     display: block;    /* Required for 'margin: auto' to work */
 }
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    body {
+        /* Shrink the huge border so content has room */
+        border-width: 15px; 
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Shrink title so it doesn't wrap weirdly */
+    }
+
+    button {
+        width: 100%; /* Stack buttons vertically for easier tapping */
+        padding: 15px; /* Bigger "hit area" for thumbs (Fitts's Law!) */
+        font-size: 1.1rem;
+    }
+
+    .genre-nav, .sub-nav {
+        flex-direction: column; /* Stack buttons in a column */
+        gap: 8px;
+    }
+
+    iframe {
+        height: 450px; /* Shorten the grid so users don't have to scroll forever */
+    }
+}

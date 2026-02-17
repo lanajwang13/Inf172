@@ -39,6 +39,16 @@
     </style>
 </head>
 <body>
+
+    <div id="mobile-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; color:white; text-align:center; padding:50px; box-sizing:border-box;">
+        <div style="margin-top:100px;">
+            <h2>Mobile Detected</h2>
+            <p>This study is ideally taken in a desktop browser for the best accuracy.</p>
+            <button onclick="closeWarning()" style="background:#1DB954; color:white; border:none; padding:15px 30px; font-size:1.2rem; border-radius:8px; cursor:pointer; margin-top:20px;">Proceed Anyway</button>
+        </div>
+    </div>
+
+
     <h1>Music & Focus Study</h1>
     <p>Step 1: Choose a genre. Step 2: Complete the Schulte Grid.</p>
 
@@ -184,6 +194,18 @@
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active-btn');
             }
+        }
+
+        // Check for mobile on page load
+        window.onload = function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('mobile-overlay').style.display = 'block';
+            }
+        };
+
+        // Function to hide the warning
+        function closeWarning() {
+            document.getElementById('mobile-overlay').style.display = 'none';
         }
         
     </script>
