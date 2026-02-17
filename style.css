@@ -154,3 +154,44 @@ iframe[title="Schulte Grid Test"] {
         padding: 10px;
     }
 }
+
+/* Styling for the Pre-Study Note */
+.pre-study-note {
+    background-color: #f0f7ff; 
+    border: 1px solid #d0e3ff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.pre-study-note p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #1d2a46;
+}
+
+.survey-btn {
+    display: inline-block;
+    background-color: #1d2a46; 
+    color: white !important;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+
+.survey-btn:hover {
+    background-color: #1DB954; /* Spotify Green */
+    transform: translateY(-2px);
+}
+
+/* Ensure the results container matches your column width */
+.results-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
