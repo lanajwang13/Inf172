@@ -130,29 +130,35 @@ button:hover, .active-btn {
     border-color: #1DB954;
 }
 
-/* Content Containers */
-.genre-player {
-    display: none;
-    margin: 0 auto 30px;
-    max-width: 1100px;
-    width: 100%;
-    animation: fadeIn 0.5s ease;
+/* Results Container & Form Logic */
+.results-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0; /* Removed padding to let the form fill the space */
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the rounded corners clean */
 }
 
-.results-container, .task-container {
+.form-iframe {
+    width: 100%;
+    /* Use 'vh' (Viewport Height) to make the form feel dynamic */
+    /* 90vh means it will take up 90% of the user's screen height */
+    height: 90vh; 
+    min-height: 600px; /* Ensures it never gets too small */
+    max-height: 1200px; /* Ensures it never gets too ridiculously long */
+    border: none;
+    display: block;
+}
+
+/* Ensure the task container also has consistent spacing */
+.task-container {
     max-width: 800px;
     width: 100%;
     margin: 0 auto 30px;
     box-sizing: border-box;
 }
-
-.form-iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    border-radius: 12px;
-}
-
 .schulte-iframe {
     width: 100%;
     height: 700px;
