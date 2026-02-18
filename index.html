@@ -145,6 +145,8 @@
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfY_V0E5JyNMjg87G_AjoIVG_GVFiNid4pv35eQivEW1fCPqg/viewform?embedded=true" class="form-iframe" frameborder="0">Loading…</iframe>
     </div>
 
+    
+
     <script>
         function resetButtons() {
             const buttons = document.getElementsByTagName('button');
@@ -190,6 +192,18 @@
         function closeWarning() {
             document.getElementById('mobile-overlay').style.display = 'none';
         }
+
+        window.onload = function() {
+            // This checks if the screen is small AND if it's a touch device
+            const isMobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            const isSmallScreen = window.innerWidth <= 768;
+
+            // Only show the overlay if it's actually a small touch device
+            if (isSmallScreen && isMobile) {
+                document.getElementById('mobile-overlay').style.display = 'block';
+            }
+        };
+        
     </script>
 </body>
 </html>
