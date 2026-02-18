@@ -22,6 +22,35 @@ body {
     border-radius: 2px;
 }
 
+
+.login-action-area {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spotify-login-btn {
+    display: inline-block;
+    background-color: #1DB954; /* Spotify Green */
+    color: white !important;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded pill shape like Spotify */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: none;
+    text-align: center;
+}
+
+.spotify-login-btn:hover {
+    background-color: #1ed760;
+    transform: scale(1.02);
+}
+
+
 /* Dual Player Layout - Optimized for side-by-side */
 .dual-player-container {
     display: flex;
