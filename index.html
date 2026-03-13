@@ -3,247 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music and Focus Study</title>
+    <title>Music & Focus Study | Group 3</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="mobile-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; color:white; text-align:center; padding:50px; box-sizing:border-box;">
-        <div style="margin-top:100px; max-width: 500px; margin-left: auto; margin-right: auto;">
-            <h2>Mobile Device Detected</h2>
-            <p>For the highest data accuracy in this focus study, a desktop browser is recommended. Screen size can impact your Schulte Grid results.</p>
-            <button onclick="closeWarning()" style="background:#1DB954; color:white; border:none; padding:15px 30px; font-size:1.1rem; border-radius:8px; cursor:pointer; margin-top:20px; font-weight:bold;">PROCEED ANYWAY</button>
+    <!-- Mobile Warning -->
+    <div id="mobile-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.98); z-index:9999; color:white; text-align:center; padding:50px; box-sizing:border-box;">
+        <div style="margin-top:80px; max-width:480px; margin-left:auto; margin-right:auto;">
+            <div style="font-size:3rem; margin-bottom:20px;">🖥️</div>
+            <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:16px;">Desktop Recommended</h2>
+            <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; margin-bottom:28px;">For the highest data accuracy in this focus study, a desktop browser is recommended. Screen size can affect your Schulte Grid results.</p>
+            <button onclick="closeWarning()" style="background:#1db954; color:white; border:none; padding:14px 32px; font-size:0.95rem; border-radius:12px; cursor:pointer; font-weight:700; font-family:inherit; letter-spacing:0.03em;">Proceed Anyway →</button>
         </div>
     </div>
 
-    <h1>Music & Focus Study</h1>
-    
-    <div class="study-intro">
-        <p>Thank you for taking the time to participate in this study today! 
-          We are examining how different genres of music impact focus.<br><br>
-           
-           You are being asked to complete the Schulte Table
-           (tapping numbers 1-49 from a grid as quickly as possible) 5-6 times 
-            with various genres of music playing. <br><br>
-            First, please complete the table with <strong>no music</strong>, followed by Pop,
-            Country, EDM, Classical, then your Preferred music genre (if not already covered).
-            If your preferred genre is not listed, feel free to play the music independently while you 
-            complete the table! <br><br>
+    <!-- Navbar -->
+    <nav class="site-nav">
+        <div class="container nav-inner">
+            <span class="nav-brand">
+                <span class="nav-brand-dot"></span>
+                Music & Focus Study
+            </span>
+            <a href="https://lanajwang13.github.io/MusicAndHealthProject/index.html#about" class="nav-back">← Research Site</a>
+        </div>
+    </nav>
 
-           <strong>Please log your results after each round. </strong>Your results will be documented for 
-            later analysis and will be anonymized for our project.    
-            
-            <br><br>
-            To recap... <br>
-            <p><strong>Step 1:</strong> Choose a music genre.<br><br>
-           <strong>Step 2:</strong> Complete the Schulte Grid sequentially (1 to 49). <strong>Make sure the grid size is set to 7x7!</strong><br>
-           <br><strong>Step 3:</strong> Log your results in the Google Form below after each round.<br>
-        
-                
-        <br>
-            <strong>Note:</strong> If you use Spotify, please log in to avoid 
-            30-second previews. Otherwise, the Youtube links will work with no sign-in needed (advertisements may play).
-        </p>
-
-        <div class="login-action-area">
-            <a href="https://accounts.spotify.com/en/login" target="_blank" class="spotify-login-btn">
-                Log in to Spotify 
-            </a>
-            <div class="pre-study-note">
-                <p>If you haven't yet, please consider filling out our pre-study survey!</p>
-                <a href="https://forms.gle/nxiiKmn8cCppgc4t5" target="_blank" class="survey-btn">Open Pre-Study Survey ↗</a>
+    <!-- Hero -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-badge">📚 IN4MATX 148 · PUBHEALTH 106</div>
+            <h1>Music & Focus<br>Experiment</h1>
+            <p class="hero-sub">Complete the Schulte Grid across six auditory environments. Your results will help us understand how music genre affects cognitive performance.</p>
+            <div class="hero-actions">
+                <a href="https://accounts.spotify.com/en/login" target="_blank" class="btn btn-primary">🎵 Log in to Spotify</a>
+                <a href="https://forms.gle/nxiiKmn8cCppgc4t5" target="_blank" class="btn btn-secondary">Pre-Study Survey ↗</a>
             </div>
         </div>
     </div>
 
-    <div class="section-divider"></div>
+    <div class="container">
 
-    <div class="genre-nav">
-        <button onclick="showGenre('pop', this)">Pop</button>
-        <button onclick="showGenre('country', this)">Country</button>
-        <button onclick="showGenre('edm', this)">EDM</button>
-        <button onclick="showGenre('classical', this)">Classical</button>
-        <button onclick="togglePreferred(this)">Preferred ▾</button>
-    </div>
+        <hr class="section-divider">
 
-    <div id="preferred-menu" class="sub-nav">
-        <button onclick="showGenre('pref-1', this)">Hip-Hop</button>
-        <button onclick="showGenre('pref-2', this)">R&B</button>
-        <button onclick="showGenre('pref-3', this)">Indie</button>
-        <button onclick="showGenre('pref-4', this)">Rock</button>
-        <button onclick="showGenre('pref-5', this)">Metal</button>
-        <button onclick="showGenre('pref-6', this)">Rap</button>
-        <button onclick="showGenre('pref-7', this)">Emo</button>
-        <button onclick="showGenre('pref-8', this)">Jazz</button>
-        <button onclick="showGenre('pref-9', this)">Lo-Fi</button>
-        <button onclick="showGenre('pref-10', this)">K-Pop</button>
-    </div>
+        <!-- Intro Instructions -->
+        <div class="intro-card scroll-target">
+            <p>Thank you for participating! We are examining how different genres of music impact focus. You will complete the Schulte Grid <strong>5–6 times</strong> with different auditory environments.</p>
+            <p>Start with <strong>No Music (Silence)</strong> as your baseline, then complete a round each for <strong>Pop, Country, EDM, Classical,</strong> and finally your <strong>Preferred</strong> genre. Log your time after every round.</p>
+            <p style="font-size:0.85rem; color:var(--slate-gray); margin-top:4px;"><strong>Note:</strong> Log in to Spotify to avoid 30-second previews. YouTube links also work without sign-in (ads may play).</p>
 
-    <div id="music-section">
-        <div id="pop" class="genre-player" style="display: none;">
-            <h3>Now Playing: Pop</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/zgaCZOQCpp8?si=ycQD7emyFqrfLa4D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/2plbrEY59IikOBgBGLjaoe?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <div class="steps-grid" style="margin-top:28px;">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <p><strong>Pick a genre</strong> from the selector below and start the music.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <p><strong>Complete the grid</strong> (1→49) as fast as possible. Set size to <strong>7×7</strong>.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <p><strong>Log your time</strong> in the form below after each round.</p>
+                </div>
             </div>
         </div>
 
-        <div id="country" class="genre-player" style="display: none;">
-            <h3>Now Playing: Country</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CbMuqt7ftD0?si=wKeB1ersCk4jBv1K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/65DbTqJKhbwqYbZ1Okr0rc?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
+        <hr class="section-divider">
+
+        <!-- Genre Selector -->
+        <p class="genre-section-label">Step 1 — Select a Genre</p>
+        <div class="genre-nav">
+            <button onclick="showGenre('pop', this)">Pop</button>
+            <button onclick="showGenre('country', this)">Country</button>
+            <button onclick="showGenre('edm', this)">EDM</button>
+            <button onclick="showGenre('classical', this)">Classical</button>
+            <button onclick="togglePreferred(this)">Preferred ▾</button>
         </div>
 
-        <div id="edm" class="genre-player" style="display: none;">
-            <h3>Now Playing: EDM</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MjEYCUJuh-g?si=RhQnwM-GD9vpW8qU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/7MmG8p0F9N3C4AXdK6o6Eb?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
+        <div id="preferred-menu" class="sub-nav">
+            <button onclick="showGenre('pref-1', this)">Hip-Hop</button>
+            <button onclick="showGenre('pref-2', this)">R&amp;B</button>
+            <button onclick="showGenre('pref-3', this)">Indie</button>
+            <button onclick="showGenre('pref-4', this)">Rock</button>
+            <button onclick="showGenre('pref-5', this)">Metal</button>
+            <button onclick="showGenre('pref-6', this)">Rap</button>
+            <button onclick="showGenre('pref-7', this)">Emo</button>
+            <button onclick="showGenre('pref-8', this)">Jazz</button>
+            <button onclick="showGenre('pref-9', this)">Lo-Fi</button>
+            <button onclick="showGenre('pref-10', this)">K-Pop</button>
         </div>
 
-        <div id="classical" class="genre-player" style="display: none;">
-            <h3>Now Playing: Classical</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_VONMkKkdf4?si=5jnlM3aQ3Mg5febo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <!-- Music Players -->
+        <div id="music-section">
+
+            <div id="pop" class="genre-player" style="display:none;">
+                <h3>Now Playing: Pop</h3>
+                <div class="now-playing-card">
+                    <div class="dual-player-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zgaCZOQCpp8?si=ycQD7emyFqrfLa4D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="player-iframe" src="https://open.spotify.com/embed/track/2plbrEY59IikOBgBGLjaoe?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                </div>
             </div>
+
+            <div id="country" class="genre-player" style="display:none;">
+                <h3>Now Playing: Country</h3>
+                <div class="now-playing-card">
+                    <div class="dual-player-container">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CbMuqt7ftD0?si=wKeB1ersCk4jBv1K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="player-iframe" src="https://open.spotify.com/embed/track/65DbTqJKhbwqYbZ1Okr0rc?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="edm" class="genre-player" style="display:none;">
+                <h3>Now Playing: EDM</h3>
+                <div class="now-playing-card">
+                    <div class="dual-player-container">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MjEYCUJuh-g?si=RhQnwM-GD9vpW8qU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="player-iframe" src="https://open.spotify.com/embed/track/7MmG8p0F9N3C4AXdK6o6Eb?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="classical" class="genre-player" style="display:none;">
+                <h3>Now Playing: Classical</h3>
+                <div class="now-playing-card">
+                    <div class="dual-player-container">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_VONMkKkdf4?si=5jnlM3aQ3Mg5febo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="player-iframe" src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pref-1" class="genre-player" style="display:none;">
+                <h3>Now Playing: Hip-Hop</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AQLwmsVLoiA?si=k0i6fQV_XAtZ8cWd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/39QBkWKnap8wRSW4WB9OK0?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-2" class="genre-player" style="display:none;">
+                <h3>Now Playing: R&amp;B</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sv5yCzPCkv8?si=GadlIw6iUNLLXq2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/4iZ4pt7kvcaH6Yo8UoZ4s2?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-3" class="genre-player" style="display:none;">
+                <h3>Now Playing: Indie</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nyuo9-OjNNg?si=FNZY77iUbldWb9-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-4" class="genre-player" style="display:none;">
+                <h3>Now Playing: Rock</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Q3gy8A0jY10?si=KM4R8g1ro0wszJMz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/60a0Rd6pjrkxjPbaKzXjfq?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-5" class="genre-player" style="display:none;">
+                <h3>Now Playing: Metal</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/27G-wokE3TQ?si=I6fVA3vc8wlge28O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/2DlHlPMa4M17kufBvI2lEN?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-6" class="genre-player" style="display:none;">
+                <h3>Now Playing: Rap</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FjVjHkezTIM?si=dFVhjA3YPUMKGvhX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/561jH07mF1jHuk7KlaeF0s?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-7" class="genre-player" style="display:none;">
+                <h3>Now Playing: Emo</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Q_fmW9RPCqM?si=zNIrWP4KShoRqx3j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/3SXXFIZel1VQQ4ENiqozxi?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-8" class="genre-player" style="display:none;">
+                <h3>Now Playing: Jazz</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Qp6D71kQRhA?si=UqevKU3b2XPa7Dus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/3spdoTYpuCpmq19tuD0bOe?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-9" class="genre-player" style="display:none;">
+                <h3>Now Playing: Lo-Fi</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7KTKHmAK81E?si=79Lm9sizaEtydcb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/3outpCyCXNCdvLd77QrOZr?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
+            <div id="pref-10" class="genre-player" style="display:none;">
+                <h3>Now Playing: K-Pop</h3>
+                <div class="now-playing-card"><div class="dual-player-container">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8Ebqe2Dbzls?si=QLKVWdWnIVAPpPkG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="player-iframe" src="https://open.spotify.com/embed/track/5vNRhkKd0yEAg8suGBpjeY?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div></div>
+            </div>
+
         </div>
 
-        <div id="pref-1" class="genre-player" style="display: none;">
-            <h3>Now Playing: Hip-Hop</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AQLwmsVLoiA?si=k0i6fQV_XAtZ8cWd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/39QBkWKnap8wRSW4WB9OK0?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
+        <hr class="section-divider">
+
+        <!-- Schulte Grid -->
+        <div class="task-section-header">
+            <h2>Step 2 — Concentration Task</h2>
+            <p>Find numbers 1–49 in order as fast as possible. Make sure the grid is set to <strong>7×7</strong>.</p>
+        </div>
+        <div class="task-container">
+            <iframe src="https://drafterleo.github.io/schulte/" class="schulte-iframe" title="Schulte Grid Test"></iframe>
+            <p class="task-note">Schulte Table sourced from drafterleo's public GitHub.</p>
         </div>
 
-        <div id="pref-2" class="genre-player" style="display: none;">
-            <h3>Now Playing: R&B</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sv5yCzPCkv8?si=GadlIw6iUNLLXq2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/4iZ4pt7kvcaH6Yo8UoZ4s2?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
+        <hr class="section-divider">
+
+        <!-- Results Form -->
+        <div class="results-section-header">
+            <h2>Step 3 — Log Your Results</h2>
+            <p>After completing each round, enter your genre and time below.</p>
+        </div>
+        <div class="results-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfY_V0E5JyNMjg87G_AjoIVG_GVFiNid4pv35eQivEW1fCPqg/viewform?embedded=true"
+                class="form-iframe" frameborder="0">Loading…</iframe>
         </div>
 
-        <div id="pref-3" class="genre-player" style="display: none;">
-            <h3>Now Playing: Indie</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nyuo9-OjNNg?si=FNZY77iUbldWb9-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
-        </div>
+    </div><!-- /container -->
 
-        <div id="pref-4" class="genre-player" style="display: none;">
-            <h3>Now Playing: Rock</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Q3gy8A0jY10?si=KM4R8g1ro0wszJMz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/60a0Rd6pjrkxjPbaKzXjfq?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-5" class="genre-player" style="display: none;">
-            <h3>Now Playing: Metal</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/27G-wokE3TQ?si=I6fVA3vc8wlge28O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/2DlHlPMa4M17kufBvI2lEN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-6" class="genre-player" style="display: none;">
-            <h3>Now Playing: Rap</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FjVjHkezTIM?si=dFVhjA3YPUMKGvhX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe"  src="https://open.spotify.com/embed/track/561jH07mF1jHuk7KlaeF0s?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-7" class="genre-player" style="display: none;">
-            <h3>Now Playing: Emo</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Q_fmW9RPCqM?si=zNIrWP4KShoRqx3j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe"  src="https://open.spotify.com/embed/track/3SXXFIZel1VQQ4ENiqozxi?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-9" class="genre-player" style="display: none;">
-            <h3>Now Playing: Lo-Fi</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7KTKHmAK81E?si=79Lm9sizaEtydcb1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-\                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/3outpCyCXNCdvLd77QrOZr?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-8" class="genre-player" style="display: none;">
-            <h3>Now Playing: Jazz</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Qp6D71kQRhA?si=UqevKU3b2XPa7Dus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe"  src="https://open.spotify.com/embed/track/3spdoTYpuCpmq19tuD0bOe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-        <div id="pref-10" class="genre-player" style="display: none;">
-            <h3>Now Playing: K-Pop</h3>
-            <div class="dual-player-container">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8Ebqe2Dbzls?si=QLKVWdWnIVAPpPkG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="player-iframe" src="https://open.spotify.com/embed/track/5vNRhkKd0yEAg8suGBpjeY?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-    <div class="section-divider"></div>
-
-    <div class="task-container">
-        <h3 style="color: #1d2a46; text-transform: uppercase; letter-spacing: 1px;">Concentration Task</h3>
-        <iframe src="https://drafterleo.github.io/schulte/" class="schulte-iframe" title="Schulte Grid Test"></iframe>
-        <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">This Schulte Table was sourced from drafterleo's public GitHub page.</p>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <!-- This is the Google Form for logging results-->
-
-    <div class="results-container">
-        <h3>Log Your Results</h3>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">After completing each grid, please enter the genre and your time below.</p>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfY_V0E5JyNMjg87G_AjoIVG_GVFiNid4pv35eQivEW1fCPqg/viewform?embedded=true" 
-        class="form-iframe" frameborder="0">Loading…</iframe>
-    </div>
-
-    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>Music & Health Research Project · UCI Informatics & Public Health Group 3 · <a href="index.html">Back to Research Site</a></p>
+    </footer>
 
     <script>
         function resetButtons() {
-            const buttons = document.getElementsByTagName('button');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active-btn');
-            }
+            document.querySelectorAll('button').forEach(b => b.classList.remove('active-btn'));
         }
 
         function showGenre(genreId, btnElement) {
-            const players = document.getElementsByClassName('genre-player');
-            for (let i = 0; i < players.length; i++) {
-                players[i].style.display = 'none';
-            }
+            document.querySelectorAll('.genre-player').forEach(p => p.style.display = 'none');
             if (!genreId.startsWith('pref')) {
                 document.getElementById('preferred-menu').style.display = 'none';
             }
             resetButtons();
-            const targetPlayer = document.getElementById(genreId);
-            if(targetPlayer) { targetPlayer.style.display = 'block'; }
+            const target = document.getElementById(genreId);
+            if (target) target.style.display = 'block';
             btnElement.classList.add('active-btn');
         }
 
         function togglePreferred(btnElement) {
             const menu = document.getElementById('preferred-menu');
-            const players = document.getElementsByClassName('genre-player');
-            for (let i = 0; i < players.length; i++) { players[i].style.display = 'none'; }
+            document.querySelectorAll('.genre-player').forEach(p => p.style.display = 'none');
             if (menu.style.display === 'flex') {
                 menu.style.display = 'none';
                 btnElement.classList.remove('active-btn');
@@ -254,8 +278,34 @@
             }
         }
 
+        // Scroll animations
+        const scrollTargets = document.querySelectorAll(
+            '.intro-card, .task-container, .results-container, .step-item, .now-playing-card'
+        );
+        scrollTargets.forEach(el => el.classList.add('scroll-hidden'));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-visible');
+                    entry.target.classList.remove('scroll-hidden');
+                } else {
+                    entry.target.classList.remove('scroll-visible');
+                    entry.target.classList.add('scroll-hidden');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        scrollTargets.forEach(el => observer.observe(el));
+
+        // Step items stagger
+        document.querySelectorAll('.step-item').forEach((el, i) => {
+            el.style.transitionDelay = `${i * 80}ms`;
+        });
+
+        // Mobile detection
         window.onload = function() {
-            if (window.innerWidth <= 768) {
+            const isMobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            const isSmallScreen = window.innerWidth <= 768;
+            if (isSmallScreen && isMobile) {
                 document.getElementById('mobile-overlay').style.display = 'block';
             }
         };
@@ -263,18 +313,7 @@
         function closeWarning() {
             document.getElementById('mobile-overlay').style.display = 'none';
         }
-
-        window.onload = function() {
-            // This checks if the screen is small AND if it's a touch device
-            const isMobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-            const isSmallScreen = window.innerWidth <= 768;
-
-            // Only show the overlay if it's actually a small touch device
-            if (isSmallScreen && isMobile) {
-                document.getElementById('mobile-overlay').style.display = 'block';
-            }
-        };
-        
     </script>
+
 </body>
 </html>
